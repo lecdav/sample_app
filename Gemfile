@@ -57,6 +57,8 @@ group :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  # Permit to access to the assert_template method
+  gem 'rails-controller-testing'
 end
 
 group :production do

@@ -53,7 +53,6 @@ class UserTest < ActiveSupport::TestCase
 
   test 'email validation should not accept existing email' do
     duplicate_user = @user.dup
-    duplicate_user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
   end

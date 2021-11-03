@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # XML toolkit for ruby, not by default in ruby 3.0.0
 gem 'rexml'
 gem 'rubocop'
+gem 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

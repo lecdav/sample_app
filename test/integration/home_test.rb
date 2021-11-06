@@ -6,8 +6,8 @@ class HomeTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 
-  test "home links" do
+  test 'home links' do
     get root_path
-    assert_select "a[href=?]", signup_path
+    assert_select 'a[href=?]', signup_path
   end
 end

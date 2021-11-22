@@ -88,4 +88,3 @@ end
 def resource_tests(resource)
   integration_tests(resource) << controller_test(resource)
 end
-

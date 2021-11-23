@@ -1,10 +1,19 @@
 # frozen_string_literal: true
-require "test_helper"
+require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
+  test 'should get new' do
     get signup_path
     assert_response :success
-    #assert_select "title", "Sign up #{base_title}"
+    # assert_select "title", "Sign up #{base_title}"
+  end
+
+  test 'should create a user' do
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name: 'David',
+                                          email: 'david@david.dv',
+                                          password: 'goodpass',
+                                          password_confirmation: 'goodpass' } }
+    end
   end
 end

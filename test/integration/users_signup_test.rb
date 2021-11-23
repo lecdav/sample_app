@@ -25,5 +25,17 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'li', "Password confirmation doesn't match Password"
   end
 
+  test 'should create user' do
+    post users_path, params: { user: { name: 'david',
+                                       email: 'david@david.dv',
+                                       password: 'goodpass',
+                                       password_confirmation: 'goodpass' } }
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_select 'div', 'Welcome to the sample app'
+  end
+
+
 
 end

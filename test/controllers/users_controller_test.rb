@@ -8,12 +8,12 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     # assert_select "title", "Sign up #{base_title}"
   end
 
-  test 'should create a user' do
+  test 'should create a user and display a welcome message' do
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { name: 'David',
                                           email: 'david@david.dv',
                                           password: 'goodpass',
-                                          password_confirmation: 'goodpass' } }
+                                          password_confirmation: 'goodpass' } }                                        
     end
   end
 end

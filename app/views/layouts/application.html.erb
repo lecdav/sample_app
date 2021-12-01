@@ -12,6 +12,9 @@
       <%= yield %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
+      <!-- <%= debug("Session's user id : #{session[:user_id]}") if Rails.env.development? %>
+      <%= debug("Current user nil? : #{current_user.nil?}") if Rails.env.development? %>
+      <%= debug("Logged in? : #{logged_in?}") if Rails.env.development? %> -->
     </div>    
   </body>
 </html>       

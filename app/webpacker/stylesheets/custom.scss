@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -20,9 +22,9 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
+/* body {
   padding-top: 60px;
-}
+} */
 
 section {
   overflow: auto;
@@ -73,6 +75,11 @@ p {
 }
 
 /* header */
+
+nav {
+  padding-right: 30px;
+  padding-left: 30px;
+}
 
 #logo {
   float: left;
@@ -182,5 +189,3 @@ input {
     color: red;
   }
 }
-
-@import "~bootstrap/scss/bootstrap";

@@ -11,10 +11,10 @@
         <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-      <%= debug("Session's user id : #{session[:user_id]}") if Rails.env.development? %>
-      <%= debug("Current user nil? : #{current_user.nil?}") if Rails.env.development? %>
-      <%= debug("Logged in? : #{logged_in?}") if Rails.env.development? %>
+      <div class="alert alert-secondary"><%= debug(params) if Rails.env.development? %></div> 
+      <div class="alert alert-secondary"><%= debug("Session's user id : #{session[:user_id]}") if Rails.env.development? %></div>
+      <div class="alert alert-secondary"><%= debug("Current user nil? : #{current_user.nil?}") if Rails.env.development? %></div>
+      <div class="alert alert-secondary"><%= debug("Logged in? : #{logged_in?}") if Rails.env.development? %></div>
     </div>    
   </body>
 </html>       

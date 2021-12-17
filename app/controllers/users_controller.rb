@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  
+  # Creates a new record of user from the new user form
   def create
     @user = User.new(user_params)
     if @user.save

@@ -26,14 +26,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create user' do
-    post users_path, params: { user: { name: 'david',
-                                       email: 'david@david.dv',
-                                       password: 'goodpass',
-                                       password_confirmation: 'goodpass' } }
-    assert_response :redirect
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name:  "Example User",
+                                         email: "user@example.com",
+                                         password:              "password",
+                                         password_confirmation: "password" } }
+    end
     follow_redirect!
-    assert_response :success
-    assert_select 'div', 'Welcome to the sample app'
+    assert_template 'users/show'
+    assert is_logged_in?
   end
 
 

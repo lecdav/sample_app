@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in? # Test for logged_in in the case of logging out a second time in a different browser
     redirect_to root_path
   end
 

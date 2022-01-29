@@ -15,6 +15,10 @@
       <div class="alert alert-secondary"><%= debug("Session's user id : #{session[:user_id]}") if Rails.env.development? %></div>
       <div class="alert alert-secondary"><%= debug("Current user nil? : #{current_user.nil?}") if Rails.env.development? %></div>
       <div class="alert alert-secondary"><%= debug("Logged in? : #{logged_in?}") if Rails.env.development? %></div>
+      <!-- 
+        <div class="alert alert-secondary"><%= debug("User.first.inspect : #{User.first.inspect}") if Rails.env.development? %></div>
+        <div class="alert alert-secondary"><%= debug("Cookies remember_token : #{cookies['remember_token']}  00 Controller's user remember_token is nil ?: #{@user.inspect}") if Rails.env.development? %></div>
+      -->
     </div>    
   </body>
 </html>       

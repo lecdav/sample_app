@@ -13,7 +13,7 @@ module SessionsHelper
 
   # Returns the current logged in user if any
   def current_user
-    if (user_id = session[:user_id])
+    if (user_id = session[:user_id]) # test the existence of session's user_id + assign it to user_id
       @current_user ||= User.find_by(id: session[:user_id])
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)

@@ -42,9 +42,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
-    assert_not cookies['remember_token'].blank?
+    assert_not cookies[:remember_token].blank?
     # Didn't manage to make this test work :
-    # assert(cookies['remember_token'] == assigns(:user).remember_token)
+    # assert(cookies.encrypted[:remember_token] == assigns(:user).remember_token)
   end
 
   test 'login witout remembering' do
@@ -52,6 +52,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '1')
     # log in agin and verify that the cookie is deleted
     log_in_as(@user, remember_me: '0')
-    assert_empty cookies['remember_token']
+    assert_empty cookies[:remember_token]
   end
 end

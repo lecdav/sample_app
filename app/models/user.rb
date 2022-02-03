@@ -12,7 +12,8 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   validates :password, presence: true,
-                       length: { minimum: 6, maximum: 30 }
+                       length: { minimum: 6, maximum: 30 },
+                       allow_nil: "true" # empty password when signing_up still catches by has_secure_password method
 
   has_secure_password
 

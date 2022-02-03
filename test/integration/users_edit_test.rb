@@ -18,5 +18,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password_confirmation: "bar"} }
     assert_template "users/edit"
     assert_select "div.alert", "The form contains 5 errors."
+    assert_select 'li', "Name can't be blank"
+    assert_select 'li', 'Name is too short (minimum is 1 character)'
+    assert_select 'li', 'Email is invalid'
+    assert_select 'li', 'Password is too short (minimum is 6 characters)'
+    assert_select 'li', "Password confirmation doesn't match Password"
   end
 end

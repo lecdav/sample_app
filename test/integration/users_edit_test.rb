@@ -44,9 +44,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit with friendly forwarding" do
+    # try to edit user without being logged in
     get edit_user_path(@user)
+    # check if forwarding url has been stored
+    assert_not_nil session[:forwarding_url]
     log_in_as(@user) # Be carefull, 2 versions of log_in_as method, depending of the test class
     assert_redirected_to edit_user_url(@user)
+    # edit user's info
     name  = "Foo Bar"
     email = "foo@bar.com"
     patch user_path(@user), params: { user: { name:  name,
@@ -55,6 +59,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password_confirmation: "" } }
     assert_not flash.empty?
     assert_redirected_to @user
+    # check that friendly forwarding forwards just the first time
+    assert_nil session[:forwarding_url]
+    # check if user's infos have correctly been changed
     @user.reload
     assert_equal name,  @user.name
     assert_equal email, @user.email

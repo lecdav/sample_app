@@ -50,4 +50,8 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+  test "should redirectu index if not logged" do
+    get users_path
+    assert_redirected_to login_path
+  end
 end

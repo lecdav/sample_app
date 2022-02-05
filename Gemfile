@@ -34,6 +34,9 @@ gem 'rubocop'
 gem 'bcrypt'
 # to handle test data sets
 gem 'faker'
+# to handle pagination
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

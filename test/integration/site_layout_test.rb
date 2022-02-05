@@ -20,7 +20,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
       # if logged in
     log_in_as(@user)
     assert_redirected_to @user
-    get root_path # I don't understand why is it necessary to get root to make the test pass
+    get root_path # I don't understand why is it necessary to get root to make the test pass as log_in_as post to login_path that calls the session create action that redirects to @user so the layout should be reloaded
     assert_select 'a[href=?]', user_path(@user)
     assert_select 'a[href=?]', edit_user_path(@user)
     assert_select 'a[href=?]', logout_path

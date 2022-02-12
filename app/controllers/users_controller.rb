@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   # Creates a new record of user from the new user form
   def create
     @user = User.new(user_params)
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -36,17 +36,17 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = 'Profile updated'
       redirect_to @user
-    else 
+    else
       render 'edit'
     end
   end
 
   def destroy
-   User.find(id: params[:id]).destroy
-   flash[:success] = "User deleted"
-   redirect_to users_path
+    User.find(params[:id]).destroy
+    flash[:success] = 'User deleted'
+    redirect_to users_path
   end
 
   private

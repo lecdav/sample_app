@@ -2,8 +2,10 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
-
+  
+  # Callback fired before Create or Update
   before_save :downcase_email
+  # Callback fired only before Create
   before_create :create_activation_digest
   validates :name, presence: true, 
                    length: { minimum: 1, maximum: 50 }

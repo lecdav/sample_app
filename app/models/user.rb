@@ -14,10 +14,13 @@ class User < ApplicationRecord
                     length: { minimum: 5, maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
+  
+  # empty password when signing_up still catches by has_secure_password method
   validates :password, presence: true,
                        length: { minimum: 6, maximum: 30 },
-                       allow_nil: "true" # empty password when signing_up still catches by has_secure_password method
-
+                       allow_nil: "true" 
+  
+  # Include a validation preventing form nill password
   has_secure_password
 
   # Returns the hash of the given string
@@ -79,6 +82,11 @@ class User < ApplicationRecord
   # Sends password reset email
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private

@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
+  
+  has_many :microposts
 
   # Callback fired before Create or Update
   before_save :downcase_email

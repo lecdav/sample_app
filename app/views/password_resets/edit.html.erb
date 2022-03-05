@@ -6,7 +6,7 @@
     # Keep the reset_token from the params[:id] in the URL to be passed to the update action for authentication 
     <%= form_with(model: @user, url: password_reset_path(params[:id]),
                   local: true) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
       
       <!-- To keep the email address for the update action without asking for it to the user -->
       <%= hidden_field_tag :email, @user.email %>

@@ -18,7 +18,11 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:success] = "Micropost deleted"
     # redirect_to request.refferer can fail if 1/ nil (like in tests) or 2/ after a POST if there is no GET route to the same path
-    redirect_back(fallback_location: root_url)
+    if request.referrer.nil? || request.referrer == microposts_url
+      redirect_to root_url
+    else
+      redirect_to request.referrer
+    end
   end
 
   private

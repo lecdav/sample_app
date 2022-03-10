@@ -37,6 +37,8 @@ gem 'faker'
 # to handle pagination
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+# to add validation feature to active storage objects
+gem 'active_storage_validations'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

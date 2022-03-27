@@ -8,8 +8,9 @@ ruby '3.0.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use Boostrap and Sass as CSS framework
 gem 'bootstrap-sass', '3.4.1'
-# Image processing
+# Use Active Storage variant
 gem 'image_processing'
+# Use MiniMagick ruby image processing engine
 gem 'mini_magick'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -25,9 +26,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -75,7 +73,10 @@ group :test do
 end
 
 group :production do
+  # Use postgreSQL in production
   gem 'pg', '1.2.3'
+  # Use the AWS Simple Storage Service
+  gem 'aws-sdk-s3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
